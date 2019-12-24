@@ -2,6 +2,8 @@
 require_once(wp_normalize_path(ABSPATH).'wp-load.php');
 class Synchro
 {
+    const POST_TYPE = 'evenement-venio';
+
     public function __construct()
     {
     }
@@ -29,7 +31,7 @@ class Synchro
                 foreach ($events as $event) {
                     $eventsWp = get_posts([
                         'numberposts' => 1,
-                        'post_type' => 'evenement_venio',
+                        'post_type' => self::POST_TYPE,
                         'meta_key' => 'id_venio',
                         'meta_value' => $event->id,
                         'post_status' => ['publish', 'pending', 'draft'],
@@ -48,7 +50,7 @@ class Synchro
                 // Création des événements dans WP
                 foreach ($events_to_create as $event) {
                     $args = [
-                        'post_type' => 'evenement_venio',
+                        'post_type' => self::POST_TYPE,
                         'post_title' => $event->name ? $this->convertSpecialChars($event->name) : '',
                         'post_excerpt' => $event->short_description ? $this->convertSpecialChars($event->short_description) : '',
                         'post_content' => $event->long_description ? $this->convertSpecialChars(wp_kses($event->long_description, CUSTOM_TAGS)) : '',
@@ -82,7 +84,7 @@ class Synchro
                 // Création du différentiel entre les événements WP & Venio
                 $events_to_delete = get_posts([
                     'numberposts' => -1,
-                    'post_type' => 'evenement_venio',
+                    'post_type' => self::POST_TYPE,
                     'meta_query' => [
                         'relation' => 'AND',
                         [

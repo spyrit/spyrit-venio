@@ -24,6 +24,6 @@ function no_event_notice()
 {
     global $pagenow;
     if ($pagenow == 'admin.php') {
-        echo "<div class='notice notice-warning is-dismissible'><p>Aucun événement n'a pu être récupéré, merci de vérifier que le <strong>nom de l'institution</strong> renseigné est correct.</p></div>";
+        echo "<div class='notice notice-warning is-dismissible'><p>Aucun événement n'a pu être récupéré, merci de vérifier que le champ <strong>Institutions(s)</strong> renseigné est correct.</p></div>";
     }
 }
