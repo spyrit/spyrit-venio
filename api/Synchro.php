@@ -1,12 +1,13 @@
 <?php
-require_once( wp_normalize_path(ABSPATH).'wp-load.php');
-class Synchro {
-
-
-    public function __construct() {
+require_once(wp_normalize_path(ABSPATH).'wp-load.php');
+class Synchro
+{
+    public function __construct()
+    {
     }
 
-    public function process() {
+    public function process()
+    {
         $institutions = preg_replace('/\s+/', '', get_option('venio-institutions'));
         $institutions = explode(',', $institutions);
 
@@ -36,7 +37,7 @@ class Synchro {
 
                     $event->id_venio = $event->id;
 
-                    if($eventsWp) {
+                    if ($eventsWp) {
                         $events_to_update[] = $event;
                         $event->id_wordpress = $eventsWp[0]->ID;
                     } else {
@@ -105,21 +106,21 @@ class Synchro {
                 // Suppression des évenements en trop
                 foreach ($events_to_delete as $event) {
                     $metas = get_post_meta($event->ID);
-                    foreach($metas as $key=>$val)  {
+                    foreach ($metas as $key=>$val) {
                         delete_post_meta($event->ID, $key);
                     }
                     wp_delete_post($event->ID, false);
                 }
 
                 add_action('admin_notices', 'success_synchro_notice');
-
             } else {
                 add_action('admin_notices', 'no_event_notice');
             }
         }
     }
 
-    public function synchronize() {
+    public function synchronize()
+    {
         update_option('venio-last-synchro', new DateTime());
         if (get_option('institution')) {
             add_action('init', [$this, 'process']);
@@ -152,14 +153,14 @@ class Synchro {
         ];
     }
 
-    public function __update_post_meta( $post_id, $field_name, $value = '' )
+    public function __update_post_meta($post_id, $field_name, $value = '')
     {
-        if ( empty( $value ) OR ! $value ) {
-            delete_post_meta( $post_id, $field_name );
-        } elseif ( ! get_post_meta( $post_id, $field_name ) ) {
-            add_post_meta( $post_id, $field_name, $value );
+        if (empty($value) or ! $value) {
+            delete_post_meta($post_id, $field_name);
+        } elseif (! get_post_meta($post_id, $field_name)) {
+            add_post_meta($post_id, $field_name, $value);
         } else {
-            update_post_meta( $post_id, $field_name, $value );
+            update_post_meta($post_id, $field_name, $value);
         }
     }
 
@@ -173,7 +174,7 @@ class Synchro {
             '', // PRIVATE USE TWO (U+0092) c292
             '', // SET TRANSMIT STATE (U+0093) c293
             '', // CANCEL CHARACTER (U+0094) c294
-        ],[
+        ], [
             '€',
             'œ',
             'Œ',

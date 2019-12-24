@@ -1,6 +1,6 @@
 <?php
 include_once plugin_dir_path(__FILE__) . 'api/Synchro.php';
-if(isset($_GET['page']) && $_GET['page'] == 'spyrit-venio/options.php' && isset($_POST['api']) ) {
+if (isset($_GET['page']) && $_GET['page'] == 'spyrit-venio/options.php' && isset($_POST['api'])) {
     $synchro = new Synchro;
     $synchro->synchronize();
 }
@@ -8,34 +8,38 @@ if(isset($_GET['page']) && $_GET['page'] == 'spyrit-venio/options.php' && isset(
 add_action('admin_menu', 'venio_create_menu');
 
 
-function venio_create_menu() {
+function venio_create_menu()
+{
     add_menu_page(
         "Réglages de l'extension VENIO",
         'VENIO',
-        'administrator', __FILE__,
-        'venio_settings_page' ,
+        'administrator',
+        __FILE__,
+        'venio_settings_page',
         plugins_url('/img/venio-icon.ico', __FILE__)
     );
-    add_action( 'admin_init', 'venio_plugin_settings' );
+    add_action('admin_init', 'venio_plugin_settings');
 }
 
 
-function venio_plugin_settings() {
-    register_setting( 'venio-settings-group', 'venio-institutions');
+function venio_plugin_settings()
+{
+    register_setting('venio-settings-group', 'venio-institutions');
 }
 
-function venio_settings_page() {
+function venio_settings_page()
+{
     ?>
     <div class="wrap">
         <h1>Réglages de l'extension VENIO</h1>
 
         <form method="post" action="options.php">
-            <?php settings_fields( 'venio-settings-group' ); ?>
-            <?php do_settings_sections( 'venio-settings-group' ); ?>
+            <?php settings_fields('venio-settings-group'); ?>
+            <?php do_settings_sections('venio-settings-group'); ?>
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row"><label for="venio-institutions">Institution(s)</label></th>
-                    <td><input type="text" name="venio-institutions" id="venio-institutions" value="<?php echo esc_attr( get_option('venio-institutions') ); ?>" /></td>
+                    <td><input type="text" name="venio-institutions" id="venio-institutions" value="<?php echo esc_attr(get_option('venio-institutions')); ?>" /></td>
                 </tr>
             </table>
             <p>Insérer dans le champ le ci-dessus le <strong>slug de vos institutions</strong>, séparées par une virgule, exemple :</p>
@@ -59,4 +63,5 @@ function venio_settings_page() {
         <?php } ?>
 
     </div>
-<?php } ?>
+<?php
+} ?>
