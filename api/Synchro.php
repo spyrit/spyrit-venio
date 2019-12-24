@@ -1,5 +1,9 @@
 <?php
 require_once(wp_normalize_path(ABSPATH).'wp-load.php');
+require_once(wp_normalize_path(ABSPATH) . 'wp-admin/includes/media.php');
+require_once(wp_normalize_path(ABSPATH) . 'wp-admin/includes/file.php');
+require_once(wp_normalize_path(ABSPATH) . 'wp-admin/includes/image.php');
+
 class Synchro
 {
     const POST_TYPE = 'evenement-venio';
@@ -61,6 +65,28 @@ class Synchro
                     $metaFields = $this->getEventMetaFields();
                     foreach ($metaFields as $field) {
                         $this->__update_post_meta($event_id, $field, $event->$field);
+                    }
+
+                    if (isset($event->images[0])) {
+                        $media = media_sideload_image("https://www.venio.fr" . $event->images[0], $event_id);
+                        if (!empty($media) && !is_wp_error($media)) {
+                            $args = [
+                                'post_type' => 'attachment',
+                                'posts_per_page' => -1,
+                                'post_status' => 'any',
+                                'post_parent' => $event_id
+                            ];
+                            $attachments = get_posts($args);
+                            if (isset($attachments) && is_array($attachments)) {
+                                foreach ($attachments as $attachment) {
+                                    $image = wp_get_attachment_image_src($attachment->ID, 'full');
+                                    if (strpos($media, $image[0]) !== false) {
+                                        set_post_thumbnail($event_id, $attachment->ID);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
