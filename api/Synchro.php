@@ -150,7 +150,7 @@ class Synchro
     public function synchronize()
     {
         update_option('venio-last-synchro', new DateTime());
-        if (get_option('institution')) {
+        if (get_option('venio-institutions')) {
             add_action('init', [$this, 'process']);
         } else {
             add_action('admin_notices', 'missing_institution_notice');

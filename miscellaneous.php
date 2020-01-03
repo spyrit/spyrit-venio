@@ -15,23 +15,52 @@ function venio_date($event)
 {
     setlocale(LC_ALL, 'fr_FR');
     $dateFormatted = null;
-    $date_start = DateTime::createFromFormat('Y-m-d', get_post_meta($event->ID, 'begin_date')[0]);
-    $date_end = DateTime::createFromFormat('Y-m-d', get_post_meta($event->ID, 'end_date')[0]);
-    if ($date_start) {
-        $year = $date_start->format('Y');
-        if (!$date_end) {
-            $year = $date_start->format('Y');
-            $dateFormatted =  ucfirst(date_i18n('D', $date_start->getTimestamp())) . '. ' . $date_start->format('j') . ' ' . strtolower(strftime('%b', $date_start->getTimestamp())) . '. ' . $year;
-        } else {
-            if ($date_start->format('Y') == $date_end->format('Y')) {
-                if ($date_start->format('M') == $date_end->format('M')) {
-                    $dateFormatted = $date_start->format('j') . ' au ' . $date_end->format('j') . ' ' . strtolower(strftime('%b', $date_start->getTimestamp())) . '. ' . $year;
-                } else {
-                    $dateFormatted = $date_start->format('j') . ' ' . strtolower(strftime('%b', $date_start->getTimestamp())) . '. au ' . $date_end->format('j') . ' ' . strtolower(date_i18n('M', $date_end->getTimestamp())) . '. ' . $year;
-                }
+    $startDateTime = DateTime::createFromFormat('Y-m-d', get_post_meta($event->ID, 'begin_date')[0]);
+    $endDateTime = DateTime::createFromFormat('Y-m-d', get_post_meta($event->ID, 'end_date')[0]);
+
+    if ($startDateTime) {
+        if ($startDateTime->format('Y') == $endDateTime->format('Y')) {
+            // Si l'année est la même
+            if ($startDateTime->format('M') == $endDateTime->format('M')) {
+                // Si le mois est le même
+                $dateFormatted =
+                    strftime("%d", $startDateTime->getTimestamp()) .
+                    ' au ' .
+                    strftime("%d", $endDateTime->getTimestamp()) .
+                    ' ' .
+                    strftime("%B", $startDateTime->getTimestamp()) .
+                    ' ' .
+                    strftime("%Y", $startDateTime->getTimestamp())
+                ;
             } else {
-                $dateFormatted = $date_start->format('j') . ' ' . strtolower(strftime('%b', $date_start->getTimestamp())) . '. ' . $date_start->format('Y') . ' au ' . $date_end->format('j') . ' ' . strtolower(strftime('%b', $date_end->getTimestamp())) . '. ' . $date_end->format('Y');
+                // Si le mois est différent
+                $dateFormatted =
+                    strftime("%d", $startDateTime->getTimestamp()) .
+                    ' ' .
+                    strftime("%B", $startDateTime->getTimestamp()) .
+                    '. au ' .
+                    strftime("%d", $endDateTime->getTimestamp()) .
+                    ' ' .
+                    strftime("%B", $startDateTime->getTimestamp()) .
+                    '. ' .
+                    strftime("%Y", $startDateTime->getTimestamp())
+                ;
             }
+        } else {
+            // Si l'année est différente
+            $dateFormatted =
+                strftime("%d", $startDateTime->getTimestamp()) .
+                ' ' .
+                strftime("%B", $startDateTime->getTimestamp()) .
+                '. ' .
+                strftime("%%Y", $startDateTime->getTimestamp()) .
+                ' au ' .
+                strftime("%d", $endDateTime->getTimestamp()) .
+                ' ' .
+                strftime("%B", $endDateTime->getTimestamp()) .
+                '. ' .
+                strftime("%Y", $endDateTime->getTimestamp())
+            ;
         }
     }
     return $dateFormatted;
