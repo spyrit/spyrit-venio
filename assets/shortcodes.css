@@ -1,0 +1,41 @@
+.venio-related-events {
+    background: #eee;
+    width: 100%;
+    display: block;
+    padding: 15px;
+    overflow: auto;
+}
+.venio-related-events .shortcode-title {
+    font-size: 15px;
+}
+.venio-related-events .events-container {
+    max-width: 650px;
+    margin: auto;
+}
+.venio-related-events .events-container:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.venio-related-events .single-event {
+    float: left;
+    width: 33%;
+    padding: 10px;
+    text-decoration: none;
+}
+@media (max-width: 767px) {
+    .venio-related-events .single-event {
+        float: none;
+        width: 100%;
+    }
+}
+.venio-related-events .single-event .single-agenda-title {
+    font-size: 13px;
+    line-height: 15px;
+}
+.venio-related-events .single-event img {
+    object-fit: cover;
+    height: 110px;
+    width: 100%;
+    margin: 0 0 10px 0;
+}

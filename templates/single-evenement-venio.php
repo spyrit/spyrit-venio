@@ -9,11 +9,11 @@ $post = $wp_query->post;
             <div class="entry-header-inner section-inner medium">
                 <h1 class="entry-title"><?php echo $post->post_title; ?></h1>
                 <?php if ($post->post_excerpt) { ?>
-                    <div class="intro-text section-inner max-percentage small">
+                    <div class="sv-intro">
                         <?php echo $post->post_excerpt; ?>
                     </div>
                 <?php } ?>
-                <div class="date"><?php echo venio_date($post); ?></div>
+                <div class="sv-date"><?php echo venio_date($post); ?></div>
             </div>
             <?php
             if (has_post_thumbnail() && ! post_password_required()) {
@@ -38,7 +38,7 @@ $post = $wp_query->post;
             ?>
             <div class="post-inner">
                 <div class="entry-content">
-                    <?php echo $post->post_content; ?>
+                    <p><?php echo $post->post_content; ?></p>
                     <?php echo do_shortcode('[venio-related-events exclude=' . $post->ID . ']') ?>
                 </div>
             </div>

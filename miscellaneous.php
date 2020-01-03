@@ -24,6 +24,7 @@ function venio_date($event)
             if ($startDateTime->format('M') == $endDateTime->format('M')) {
                 // Si le mois est le même
                 $dateFormatted =
+                    'du ' .
                     strftime("%d", $startDateTime->getTimestamp()) .
                     ' au ' .
                     strftime("%d", $endDateTime->getTimestamp()) .
@@ -35,6 +36,7 @@ function venio_date($event)
             } else {
                 // Si le mois est différent
                 $dateFormatted =
+                    'du ' .
                     strftime("%d", $startDateTime->getTimestamp()) .
                     ' ' .
                     strftime("%B", $startDateTime->getTimestamp()) .
@@ -49,6 +51,7 @@ function venio_date($event)
         } else {
             // Si l'année est différente
             $dateFormatted =
+                'du ' .
                 strftime("%d", $startDateTime->getTimestamp()) .
                 ' ' .
                 strftime("%B", $startDateTime->getTimestamp()) .

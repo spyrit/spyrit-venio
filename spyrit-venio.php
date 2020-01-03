@@ -34,3 +34,11 @@ function venio_template($template)
 
     return $template;
 }
+
+/* Assets */
+function spyrit_venio_style()
+{
+    wp_enqueue_style('spyrit-venio-style-global', plugin_dir_url(__FILE__) . 'assets/global.css');
+    wp_enqueue_style('spyrit-venio-style-shortcodes', plugin_dir_url(__FILE__) . 'assets/shortcodes.css');
+}
+add_action('wp_enqueue_scripts', 'spyrit_venio_style');
