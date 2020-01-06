@@ -61,7 +61,35 @@ function venio_settings_page()
             <small>Dernière récupération&nbsp;: <?php echo get_option('venio-last-synchro')->format('d/m/Y à H:i:s') ?></small>
         </p>
         <?php } ?>
-
+        <hr>
+        <h2>Shortcodes à intégrer sur votre site</h2>
+        <p>Vous avez la possibilité d'intégrer les shorcodes suivants sur vos pages et articles&nbsp;:</p>
+        <div style="background: #eaeaea;padding: 10px;margin-bottom: 10px;">
+            <p><strong style="font-size: 16px;">[venio-events]</strong></p>
+            <p>
+                Affiche un module de recherche qui liste vos événements en fonction des critères recherchés.<br />
+                Options disponibles&nbsp;:
+            </p>
+            <ul>
+                <li>
+                    <strong>institution</strong> (non requis)&nbsp;: slug de l'institution des événements.<br>
+                    <em>Exemple d'intégration&nbsp;:</em> <strong>[venio-events institution=mon-institution]</strong>
+                </li>
+            </ul>
+        </div>
+        <div style="background: #eaeaea;padding: 10px;">
+            <p><strong style="font-size: 16px;">[venio-related-events]</strong></p>
+            <p>
+                Affiche les trois prochains événements sous forme de liste.<br />
+                Options disponibles&nbsp;:
+            </p>
+            <ul>
+                <li>
+                    <strong>exclude</strong> (non requis)&nbsp;: Exclure un événement de la liste en renseignant son ID Wordpress.<br>
+                    <em>Exemple d'intégration&nbsp;:</em> <strong>[venio-related-events exclude=42]</strong>
+                </li>
+            </ul>
+        </div>
     </div>
 <?php
 } ?>

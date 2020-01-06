@@ -36,6 +36,14 @@ function venio_events_shortcode($atts)
             ];
             $metaQuery_args[] = $metaQ;
         }
+    }
+    if (isset($atts['institution'])) {
+        $metaQ = [
+            'key'     => 'institution',
+            'value'   => $atts['institution'],
+            'compare' => '=',
+        ];
+        $metaQuery_args[] = $metaQ;
     } ?>
     <div class="venio-shortcode venio-events">
         <div class="shortcode-title">Rechercher un événement</div>
