@@ -77,7 +77,7 @@ function venio_settings_page()
                 </li>
             </ul>
         </div>
-        <div style="background: #eaeaea;padding: 10px;">
+        <div style="background: #eaeaea;padding: 10px;margin-bottom: 10px;">
             <p><strong style="font-size: 16px;">[venio-related-events]</strong></p>
             <p>
                 Affiche les trois prochains événements sous forme de liste.<br />
@@ -89,6 +89,12 @@ function venio_settings_page()
                     <em>Exemple d'intégration&nbsp;:</em> <strong>[venio-related-events exclude=42]</strong>
                 </li>
             </ul>
+        </div>
+        <div style="background: #eaeaea;padding: 10px;">
+            <p><strong style="font-size: 16px;">[venio-calendar]</strong></p>
+            <p>
+                Affiche un calendrier regroupant vos événements.
+            </p>
         </div>
     </div>
 <?php

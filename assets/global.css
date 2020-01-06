@@ -12,3 +12,8 @@
 .sv-pagination span {
     font-size: 14px;
 }
+.sv-thumbnail img {
+    height: 260px;
+    width: 100%;
+    object-fit: cover;
+}
