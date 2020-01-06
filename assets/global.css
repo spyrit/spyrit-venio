@@ -8,3 +8,7 @@
     margin: 30px 0;
     font-size: 14px;
 }
+.sv-pagination a,
+.sv-pagination span {
+    font-size: 14px;
+}

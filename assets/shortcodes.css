@@ -1,3 +1,4 @@
+/* venio-related-events */
 .venio-related-events {
     background: #eee;
     width: 100%;
@@ -38,4 +39,92 @@
     height: 110px;
     width: 100%;
     margin: 0 0 10px 0;
+}
+
+/* venio-events */
+.venio-events fieldset {
+    border: 0.2rem solid #dcd7ca;
+    padding: 13px 20px;
+    margin: 0 0 15px 0;
+}
+.venio-events fieldset legend {
+    font-size: 0.85em;
+    font-weight: 700;
+    padding: 0 1rem;
+}
+.venio-events input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #fff;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0.1rem;
+    box-shadow: none;
+    display: block;
+    font-size: 1.6rem;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 100%;
+    padding: 1.5rem 1.8rem;
+    width: 100%;
+    border-color: #dcd7ca;
+}
+.venio-events fieldset#by-name:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.venio-events fieldset#by-date .single-input {
+    float: left;
+    width: 50%;
+    padding: 0 10px;
+}
+.venio-events button[type=submit] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #cd2653;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.0333em;
+    line-height: 1.25;
+    opacity: 1;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.15s linear;
+    display: block;
+    margin: 0 0 30px auto;
+}
+.venio-events .events-container .single-event {
+    margin: 0 0 20px 0;
+    color: #3a3a3a;
+}
+.venio-events .events-container .single-event:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.venio-events .events-container .single-event img {
+    object-fit: cover;
+    height: 65px;
+    width: 100px;
+    float: left;
+}
+.venio-events .events-container .single-event .single-agenda-content {
+    float: left;
+    width: calc(100% - 100px);
+    padding: 0 30px;
+}
+.venio-events .events-container .single-event .single-agenda-content h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+.venio-events .events-container .single-event .single-agenda-content .date {
+    font-size: 16px;
 }

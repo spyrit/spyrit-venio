@@ -12,6 +12,7 @@ include_once plugin_dir_path(__FILE__) . 'cpt/evenement-venio_type.php';
 
 /* Shortcodes */
 include_once plugin_dir_path(__FILE__) . 'shortcodes/venio-related-events_shortcode.php';
+include_once plugin_dir_path(__FILE__) . 'shortcodes/venio-events_shortcode.php';
 
 /* Réglages, page d'option */
 include_once plugin_dir_path(__FILE__) . 'options.php';

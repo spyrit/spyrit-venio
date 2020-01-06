@@ -16,15 +16,7 @@ function venio_related_events_shortcode($atts)
         'meta_query' => [
             'relation' => 'AND',
             [
-                'relation' => 'AND',
-                [
-                    'key'     => 'begin_date',
-                    'value'   => date('Y-m-d'),
-                    'compare' => '>=',
-                ],
-            ],
-            [
-                'key'     => 'end_date',
+                'key'     => 'begin_date',
                 'value'   => date('Y-m-d'),
                 'compare' => '>=',
             ],

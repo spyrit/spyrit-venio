@@ -56,7 +56,7 @@ function venio_date($event)
                 ' ' .
                 strftime("%B", $startDateTime->getTimestamp()) .
                 '. ' .
-                strftime("%%Y", $startDateTime->getTimestamp()) .
+                strftime("%Y", $startDateTime->getTimestamp()) .
                 ' au ' .
                 strftime("%d", $endDateTime->getTimestamp()) .
                 ' ' .
