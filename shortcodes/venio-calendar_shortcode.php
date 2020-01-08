@@ -11,10 +11,7 @@ function venio_calendar_shortcode($atts)
     $noposts = false;
     $query = new WP_Query($args);
 
-    if ($query->have_posts()): ?>
-        <div class="events-container">
-
-            <?php $i=0;
+    if ($query->have_posts()): $i=0;
     $eventsArray = [];
     while ($query->have_posts()): $query->the_post();
 
@@ -28,9 +25,9 @@ function venio_calendar_shortcode($atts)
     $eventsArray[$i] = json_encode($eventsArray[$i]);
 
     $i++;
-    endwhile; ?>
-        </div>
-    <?php endif; ?>
+    endwhile;
+    endif; ?>
+        <div id='calendar'></div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +54,6 @@ function venio_calendar_shortcode($atts)
                     } ?>
         });
     </script>
-    <div id='calendar'></div>
     <?php
     return ob_get_clean();
 }

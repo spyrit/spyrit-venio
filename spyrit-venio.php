@@ -46,5 +46,6 @@ function spyrit_venio_style()
     wp_enqueue_script('spyrit-veniofullcalendar-core-script', plugin_dir_url(__FILE__) . 'assets/fullcalendar-4.2.0/packages/core/main.js', [], '', true);
     wp_enqueue_script('spyrit-veniofullcalendar-daygrid-script', plugin_dir_url(__FILE__) . 'assets/fullcalendar-4.2.0/packages/daygrid/main.js', [], '', true);
     wp_enqueue_script('spyrit-veniofullcalendar-timegrid-script', plugin_dir_url(__FILE__) . 'assets/fullcalendar-4.2.0/packages/timegrid/main.js', [], '', true);
+    wp_enqueue_script('spyrit-veniofullcalendar-locale-fr', plugin_dir_url(__FILE__) . 'assets/fullcalendar-4.2.0/packages/core/locales/fr.js', [], '', true);
 }
 add_action('wp_enqueue_scripts', 'spyrit_venio_style');

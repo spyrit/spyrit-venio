@@ -178,6 +178,7 @@ class Synchro
             'id_venio',
             'begin_date',
             'end_date',
+            'subdomain',
         ];
     }
 

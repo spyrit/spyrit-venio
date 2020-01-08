@@ -128,3 +128,28 @@
 .venio-events .events-container .single-event .single-agenda-content .date {
     font-size: 16px;
 }
+
+/* venio-calendar */
+.venio-calendar .fc-button-group button {
+    color: #fff;
+    background-color: #2C3E50;
+    border-color: #2C3E50;
+}
+.venio-calendar button {
+    font-size: 14px;
+}
+.venio-calendar .fc-center h2 {
+    font-size: 23px;
+    margin: 0;
+}
+.venio-calendar .fc-toolbar.fc-header-toolbar {
+    font-size: 23px;
+    margin: 0;
+}
+.venio-calendar .fc-button-group .fc-icon {
+    font-size: 18px;
+}
+.venio-calendar .fc table {
+    margin: 10px 0;
+    font-size: 14px;
+}

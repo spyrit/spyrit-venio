@@ -63,7 +63,7 @@ function venio_settings_page()
         <?php } ?>
         <hr>
         <h2>Shortcodes à intégrer sur votre site</h2>
-        <p>Vous avez la possibilité d'intégrer les shorcodes suivants sur vos pages et articles&nbsp;:</p>
+        <p>Vous avez la possibilité d'intégrer les shortcodes suivants sur vos pages et articles&nbsp;:</p>
         <div style="background: #eaeaea;padding: 10px;margin-bottom: 10px;">
             <p><strong style="font-size: 16px;">[venio-events]</strong></p>
             <p>

@@ -17,3 +17,19 @@
     width: 100%;
     object-fit: cover;
 }
+#btn-venio {
+    font-size: 15px;
+    display: block;
+    margin: 10px auto 20px;
+    background: #eeeeee;
+    color: #000;
+    border-radius: 10px;
+    max-width: 370px;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+#btn-venio:hover,
+#btn-venio:focus,
+#btn-venio:active {
+    background: #eaeaea;
+}

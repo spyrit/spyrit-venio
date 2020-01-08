@@ -39,6 +39,11 @@ $post = $wp_query->post;
             <div class="post-inner">
                 <div class="entry-content">
                     <p><?php echo $post->post_content; ?></p>
+                    <?php if (get_post_meta($post->ID, 'subdomain')) { ?>
+                        <a href="https://<?php echo get_post_meta($post->ID, 'subdomain')[0];?>.venio.fr" id="btn-venio" title="<?php echo $post->post_title; ?>" target="_blank">
+                            Accéder au détail de l'événemement sur venio.fr
+                        </a>
+                    <?php }?>
                     <?php echo do_shortcode('[venio-related-events exclude=' . $post->ID . ']') ?>
                 </div>
             </div>
