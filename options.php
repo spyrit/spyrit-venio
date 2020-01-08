@@ -1,8 +1,6 @@
 <?php
-include_once plugin_dir_path(__FILE__) . 'api/Synchro.php';
 if (isset($_GET['page']) && $_GET['page'] == 'spyrit-venio/options.php' && isset($_POST['api'])) {
-    $synchro = new Synchro;
-    $synchro->synchronize();
+    do_venio_sync();
 }
 
 add_action('admin_menu', 'venio_create_menu');

@@ -15,14 +15,14 @@ include_once plugin_dir_path(__FILE__) . 'shortcodes/venio-related-events_shortc
 include_once plugin_dir_path(__FILE__) . 'shortcodes/venio-events_shortcode.php';
 include_once plugin_dir_path(__FILE__) . 'shortcodes/venio-calendar_shortcode.php';
 
+/* Autre */
+include_once plugin_dir_path(__FILE__) . 'miscellaneous.php';
+
 /* Réglages, page d'option */
 include_once plugin_dir_path(__FILE__) . 'options.php';
 
 /* Notifications */
 include_once plugin_dir_path(__FILE__) . 'notices.php';
-
-/* Autre */
-include_once plugin_dir_path(__FILE__) . 'miscellaneous.php';
 
 /* Template */
 add_filter('template_include', 'venio_template');

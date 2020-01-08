@@ -1,4 +1,5 @@
 <?php
+include_once plugin_dir_path(__FILE__) . 'api/Synchro.php';
 
 add_action('admin_init', 'venio_flush');
 function venio_flush()
@@ -9,6 +10,25 @@ function venio_flush()
         $wp_rewrite->init();
         update_option('venio-init', true);
     }
+}
+
+add_action('wp', 'venio_sync');
+function venio_sync()
+{
+    if (get_option('venio-last-synchro')) {
+        $dateLastSync = get_option('venio-last-synchro');
+        $date = new DateTime();
+        if ($date->format('d/m/Y') === $dateLastSync->format('d/m/Y')) {
+            return;
+        }
+    }
+    do_venio_sync();
+}
+
+function do_venio_sync()
+{
+    $synchro = new Synchro;
+    $synchro->synchronize();
 }
 
 function venio_date($event)
