@@ -7,6 +7,11 @@ Author URI: http://www.spyrit.net
 Version: 0.1
 */
 
+const PLUGIN_VERSION = "0.1";
+
+/* Mise à jour */
+include_once plugin_dir_path(__FILE__) . 'info_update.php';
+
 /* Type de contenu */
 include_once plugin_dir_path(__FILE__) . 'cpt/evenement-venio_type.php';
 
