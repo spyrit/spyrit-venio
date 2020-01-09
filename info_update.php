@@ -13,7 +13,7 @@ function venio_plugin_info($res, $action, $args)
 
     if (false == $remote = get_transient('spyrit_upgrade_spyrit-venio')) {
         $remote = wp_remote_get(
-            'https://raw.githubusercontent.com/spyrit/spyrit-venio/master/info.json',
+            REMOTE_INFO_URL,
             [
                 'timeout' => 10,
                 'headers' => [
@@ -65,7 +65,7 @@ function venio_push_update($transient)
 
     if (false == $remote = get_transient('spyrit_upgrade_spyrit-venio')) {
         $remote = wp_remote_get(
-            'https://raw.githubusercontent.com/spyrit/spyrit-venio/master/info.json',
+            REMOTE_INFO_URL,
             array(
                 'timeout' => 10,
                 'headers' => array(

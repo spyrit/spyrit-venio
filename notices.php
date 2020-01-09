@@ -1,7 +1,5 @@
 <?php
 
-// Success
-
 function success_synchro_notice()
 {
     global $pagenow;
@@ -9,8 +7,6 @@ function success_synchro_notice()
         echo "<div class='notice notice-success is-dismissible'><p>Les événements ont bien été récupérés et/ou mis à jour.</p></div>";
     }
 }
-
-// Warning
 
 function missing_institution_notice()
 {

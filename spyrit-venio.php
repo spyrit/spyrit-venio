@@ -8,6 +8,7 @@ Version: 0.1
 */
 
 const PLUGIN_VERSION = "0.1";
+const REMOTE_INFO_URL = "https://raw.githubusercontent.com/spyrit/spyrit-venio/master/info.json";
 
 /* Mise à jour */
 include_once plugin_dir_path(__FILE__) . 'info_update.php';

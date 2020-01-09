@@ -23,6 +23,7 @@ function venio_create_menu()
 function venio_plugin_settings()
 {
     register_setting('venio-settings-group', 'venio-institutions');
+    register_setting('venio-settings-group', 'venio-erase-events');
 }
 
 function venio_settings_page()
@@ -39,9 +40,24 @@ function venio_settings_page()
                     <th scope="row"><label for="venio-institutions">Institution(s)</label></th>
                     <td><input type="text" name="venio-institutions" id="venio-institutions" value="<?php echo esc_attr(get_option('venio-institutions')); ?>" /></td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>Insérer dans le champ le ci-dessus le <strong>slug de vos institutions</strong>, séparées par une virgule, exemple :</p>
+                        <pre>institution1, institution2, institution3</pre>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="venio-erase-events">Écraser les événements</label></th>
+                    <td><input type="checkbox" name="venio-erase-events" id="venio-erase-events" <?php echo get_option('venio-erase-events') === 'on' ? ' checked' : ''; ?> /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>Cochez la case si vous souhaitez que le <strong>contenu Wordpress</strong> de vos événements soit <strong>écrasé</strong> lors de la récupération des événements.</p>
+                        <p><strong>Attention</strong>&nbsp;: vous risquez de perdre du contenu si vous cochez cette case.</p>
+                    </td>
+                </tr>
             </table>
-            <p>Insérer dans le champ le ci-dessus le <strong>slug de vos institutions</strong>, séparées par une virgule, exemple :</p>
-            <pre>institution1, institution2, institution3</pre>
+
             <?php submit_button('Enregistrer'); ?>
 
         </form>

@@ -66,6 +66,7 @@ class Synchro
                     foreach ($metaFields as $field) {
                         $this->__update_post_meta($event_id, $field, $event->$field);
                     }
+                    $this->__update_post_meta($event_id, 'institution', $institution);
 
                     if (isset($event->images[0])) {
                         $media = media_sideload_image("https://www.venio.fr" . $event->images[0], $event_id);
@@ -92,19 +93,21 @@ class Synchro
 
                 // Mise à jour des événements dans WP
                 foreach ($events_to_update as $event) {
-                    $args = [
-                        'ID' => $event->id_wordpress,
-                        'post_title' => $event->name ? $this->convertSpecialChars($event->name) : '',
-                        'post_excerpt' => $event->short_description ? $this->convertSpecialChars($event->short_description) : '',
-                        'post_content' => $event->long_description ? $this->convertSpecialChars(wp_kses($event->long_description, CUSTOM_TAGS)) : '',
-                    ];
-                    $event_id = wp_update_post($args);
+                    if (get_option('venio-erase-events') && 'on' === get_option('venio-erase-events')) {
+                        $args = [
+                            'ID' => $event->id_wordpress,
+                            'post_title' => $event->name ? $this->convertSpecialChars($event->name) : '',
+                            'post_excerpt' => $event->short_description ? $this->convertSpecialChars($event->short_description) : '',
+                            'post_content' => $event->long_description ? $this->convertSpecialChars(wp_kses($event->long_description, CUSTOM_TAGS)) : '',
+                        ];
+                        wp_update_post($args);
+                    }
 
                     $metaFields = $this->getEventMetaFields();
                     foreach ($metaFields as $field) {
-                        $this->__update_post_meta($event_id, $field, $event->$field);
+                        $this->__update_post_meta($event->id_wordpress, $field, $event->$field);
                     }
-                    $this->__update_post_meta($event_id, 'institution', $institution);
+                    $this->__update_post_meta($event->id_wordpress, 'institution', $institution);
                 }
 
                 // Création du différentiel entre les événements WP & Venio
@@ -133,13 +136,11 @@ class Synchro
 
                 // Suppression des évenements en trop
                 foreach ($events_to_delete as $event) {
-                    $metas = get_post_meta($event->ID);
-                    foreach ($metas as $key=>$val) {
-                        delete_post_meta($event->ID, $key);
-                    }
-                    wp_delete_post($event->ID, false);
+                    wp_update_post([
+                        'ID' => $event->ID,
+                        'post_status' => 'draft'
+                    ]);
                 }
-
                 add_action('admin_notices', 'success_synchro_notice');
             } else {
                 add_action('admin_notices', 'no_event_notice');
