@@ -93,3 +93,12 @@ function venio_push_update($transient)
     }
     return $transient;
 }
+
+add_action('upgrader_process_complete', 'venio_after_update', 10, 2);
+
+function venio_after_update($upgrader_object, $options)
+{
+    if ($options['action'] == 'update' && $options['type'] === 'plugin') {
+        delete_transient('spyrit_upgrade_spyrit-venio');
+    }
+}
