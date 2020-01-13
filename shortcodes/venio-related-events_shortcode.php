@@ -3,8 +3,6 @@ function venio_related_events_shortcode($atts)
 {
     ob_start(); ?>
     <div class="venio-shortcode venio-related-events">
-    <div class="shortcode-title">Ces événements pourraient vous intéresser</div>
-
     <?php
     $args = [
         'post_type' => Synchro::POST_TYPE,
@@ -26,6 +24,7 @@ function venio_related_events_shortcode($atts)
 
     if ($query->have_posts()): ?>
         <div class="events-container">
+            <div class="shortcode-title">Ces événements pourraient vous intéresser</div>
             <?php while ($query->have_posts()): $query->the_post(); ?>
                 <a href="<?php the_permalink()?>" title="Accéder à l'événement <?php the_title()?>" class="single-event">
                     <div class="single-agenda-entry">

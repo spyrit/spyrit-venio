@@ -110,11 +110,11 @@ class Event
 function parseDateTime($string, $timeZone=null)
 {
     $date = new DateTime(
-      $string,
-      $timeZone ? $timeZone : new DateTimeZone('UTC')
+        $string,
+        $timeZone ? $timeZone : new DateTimeZone('UTC')
       // Used only when the string is ambiguous.
       // Ignored if string has a timeZone offset in it.
-  );
+    );
     if ($timeZone) {
         // If our timeZone was ignored above, force it.
         $date->setTimezone($timeZone);

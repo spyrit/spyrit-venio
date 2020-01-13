@@ -47,7 +47,7 @@ function venio_events_shortcode($atts)
     } ?>
     <div class="venio-shortcode venio-events">
         <div class="shortcode-title">Rechercher un événement</div>
-        <form class="form-inline" method="GET" action="<?php echo get_the_permalink(); ?>">
+        <form method="GET" action="<?php echo get_the_permalink(); ?>">
             <fieldset id="by-name">
                 <legend>Par nom</legend>
                 <input type="text" name="nom" placeholder="Nom de l'événement" <?php echo $name ? 'value="' . $name . '"' : ''; ?> />
