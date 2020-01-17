@@ -22,8 +22,7 @@ $post = $wp_query->post;
                     if (! is_singular()) {
                         $featured_media_inner_classes .= ' medium';
                     } ?>
-                    <figure class="featured-media sv-thumbnail">
-                        <div class="featured-media-inner section-inner<?php echo $featured_media_inner_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output?>">
+                    <figure>
                             <?php
                             the_post_thumbnail();
                     $caption = get_the_post_thumbnail_caption();
@@ -32,7 +31,6 @@ $post = $wp_query->post;
                                 <figcaption class="wp-caption-text"><?php echo esc_html($caption); ?></figcaption>
                                 <?php
                     } ?>
-                        </div><!-- .featured-media-inner -->
                     </figure><!-- .featured-media -->
                     <?php
                 }
