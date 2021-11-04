@@ -1,0 +1,256 @@
+/* Shortcodes */
+.venio-shortcode.venio-events form {
+  text-align: center;
+  margin: 0 0 40px 0;
+  padding: 20px 25px;
+  border-radius: 6px;
+}
+.venio-shortcode.venio-events form label {
+  margin: 0 0 10px 0;
+  display: block;
+}
+.venio-shortcode.venio-events form .form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.venio-shortcode.venio-events form .form-wrapper input[type=text] {
+  height: 40px;
+  border: 0;
+  border-radius: 20px 0 0 20px;
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+.venio-shortcode.venio-events form .form-wrapper input[type=text]:focus {
+  outline: none;
+}
+.venio-shortcode.venio-events form .form-wrapper button[type=submit] {
+  height: 40px;
+  margin: 0;
+  border-radius: 0 20px 20px 0;
+  font-size: 14px;
+  padding: 0 10px;
+  border: 0;
+  background: #424242;
+  color: #fff;
+}
+.venio-shortcode.venio-events form .form-wrapper button[type=submit]:hover, .venio-shortcode.venio-events form .form-wrapper button[type=submit]:focus, .venio-shortcode.venio-events form .form-wrapper button[type=submit]:active {
+  background: #424242;
+  outline: none;
+  color: #fff;
+}
+.venio-shortcode.venio-events .events-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.venio-shortcode.venio-events .events-container.threeC {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.venio-shortcode.venio-events .events-container.fourC {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+@media (max-width: 991px) {
+  .venio-shortcode.venio-events .events-container {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+@media (max-width: 767px) {
+  .venio-shortcode.venio-events .events-container {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 400px) {
+  .venio-shortcode.venio-events .events-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+.venio-shortcode.venio-events .events-container:after {
+  content: "";
+  clear: both;
+}
+.venio-shortcode.venio-events .events-container .single-event {
+  color: #000;
+  text-decoration: none;
+  display: block;
+  margin: 0 0 30px 0;
+  padding: 0 10px;
+}
+.venio-shortcode.venio-events .events-container .single-event img {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  -o-object-fit: cover;
+}
+.venio-shortcode.venio-events .events-container .single-event .no-image {
+  border-radius: 8px;
+  width: 100%;
+  height: 150px;
+  display: block;
+  background-color: #aacbca;
+}
+.venio-shortcode.venio-events .events-container .single-event .title {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 0 0;
+  line-height: 18px;
+  height: 45px;
+  overflow: hidden;
+}
+.venio-shortcode.venio-events .events-container .single-event .date {
+  font-size: 16px;
+  display: block;
+}
+.venio-shortcode.venio-events .events-container .single-event .span {
+  display: block;
+}
+.venio-shortcode.venio-events .events-container .placeholder-item {
+  display: none;
+  width: 100%;
+  margin: 0 0 30px 0;
+  padding: 0 10px;
+}
+.venio-shortcode.venio-events .events-container .placeholder-item .placeholder-image {
+  border-radius: 8px;
+  width: 100%;
+  height: 150px;
+  display: block;
+  background-color: #d8d7d7;
+  margin: 0 0 5px 0;
+  position: relative;
+  overflow: hidden;
+}
+.venio-shortcode.venio-events .events-container .placeholder-item .placeholder-text {
+  width: 70%;
+  height: 20px;
+  overflow: hidden;
+  margin: 0 0 5px 0;
+  background-color: #d8d7d7;
+  position: relative;
+}
+.venio-shortcode.venio-events .events-container .placeholder-item .placeholder-image:before,
+.venio-shortcode.venio-events .events-container .placeholder-item .placeholder-text:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -150px;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(to right, transparent 0%, #dcdcdc 50%, transparent 100%);
+  animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.venio-shortcode.venio-events .events-container.loading .placeholder-item {
+  display: block;
+}
+.venio-shortcode.venio-events .events-container.loading .single-event {
+  display: none;
+}
+
+@keyframes load {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}
+/* Single */
+.venio-single {
+  max-width: 630px;
+  margin: 25px auto 20px;
+  background: #fff;
+  padding: 48px 44px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.venio-single h1 {
+  font-size: 25px !important;
+  line-height: 28px;
+  margin: 0 0 5px 0;
+}
+.venio-single .date {
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-weight: bold;
+}
+.venio-single .venio-slider-container {
+  margin: 0 0 10px 0;
+}
+.venio-single .venio-slider-container .venio-slider-controls {
+  background: #3e3d3d;
+  display: inline-block;
+  border-radius: 10px 10px 0 0;
+}
+.venio-single .venio-slider-container .venio-slider-controls .prev,
+.venio-single .venio-slider-container .venio-slider-controls .next {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 0 12px;
+}
+.venio-single .venio-slider-container .venio-slide {
+  height: 210px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.venio-single .info-block {
+  font-size: 14px;
+  margin: 0 0 20px 0;
+  position: relative;
+}
+.venio-single .info-block .block-title {
+  display: inline-block;
+  padding: 8px 25px 8px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #000;
+}
+.venio-single .info-block .block-content {
+  font-weight: normal;
+  padding: 10px 0;
+}
+.venio-single .info-block .block-content ul {
+  margin-bottom: 0;
+}
+.venio-single .info-block.package {
+  background: #f7f7f7;
+  padding: 20px 20px 25px 20px;
+  border-bottom: 2px solid;
+}
+.venio-single .info-block.package .block-title {
+  border: none;
+  display: block;
+  padding-bottom: 0;
+}
+.venio-single .info-block.package .price {
+  position: absolute;
+  background: #424242;
+  color: #fff;
+  right: 0;
+  top: 0;
+  padding: 3px 17px;
+  border-radius: 0 0 0 6px;
+}
+.venio-single .info-block.package .outer-link {
+  position: absolute;
+  background: #e94f35;
+  color: #fff;
+  right: 0;
+  bottom: 0;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 6px 23px;
+  border-radius: 6px 0 0 0;
+}
+.venio-single .info-block.package .outer-link:hover, .venio-single .info-block.package .outer-link:focus, .venio-single .info-block.package .outer-link:active {
+  background: #cf442c;
+  outline: none;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=venio.css.map */
