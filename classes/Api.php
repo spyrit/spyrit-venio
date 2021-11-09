@@ -11,8 +11,8 @@ class Api
     }
 
     public function getEventsByString() {
-        $institution = isset($_POST['institution']) && $_POST['institution'] ? $_POST['institution'] : null;
-        $searchStr = isset($_POST['search']) && $_POST['search'] ? $_POST['search'] : null;
+        $institution = isset($_POST['institution']) && $_POST['institution'] ? sanitize_text_field($_POST['institution']) : null;
+        $searchStr = isset($_POST['search']) && $_POST['search'] ? sanitize_text_field($_POST['search']) : null;
         $result = json_encode(venio_events_list($this->getEvents($institution, null, false, $searchStr)));
         wp_send_json_success($result);
     }
@@ -105,16 +105,15 @@ class Api
 
     private function callApi($institution = null)
     {
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, VENIO_API_URL . $institution);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_USERAGENT, 'Plugin VENIO');
-        $result = curl_exec($curl);
-        curl_close($curl);
+        $args = [
+            'user-agent' => 'Plugin VENIO',
+        ];
+        $response = wp_remote_get(VENIO_API_URL . $institution, $args);
+        $body = wp_remote_retrieve_body($response);
 
         $date = new \DateTime();
         update_option('venio_api_last_call', $date->format('d/m/Y H:i'));
 
-        return $result;
+        return $body;
     }
 }

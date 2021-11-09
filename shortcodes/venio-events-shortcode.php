@@ -1,7 +1,7 @@
 <?php
 function venio_events_shortcode($atts)
 {
-    $institution = isset($atts['institution']) && $atts['institution'] ? $atts['institution'] : null;
+    $institution = isset($atts['institution']) && $atts['institution'] ? esc_html($atts['institution']) : null;
     $api = new \VENIO\Api();
     $events = $api->getEvents($institution);
     ob_start();
@@ -16,7 +16,7 @@ function venio_events_shortcode($atts)
             </div>
         </form>
         <div class="events-container" id="eventsContainer">
-            <?= venio_events_list($events); ?>
+            <?php echo wp_kses(venio_events_list($events), ['a' => ['href' => [], 'title' => [], 'class' => []], 'img' => ['src' => []], 'span' => ['class' => []], 'div' => ['class' => []]]); ?>
         </div>
         <script>
             let eventsContainer = document.getElementById("eventsContainer");
@@ -40,7 +40,7 @@ function venio_events_shortcode($atts)
                         }
                     }
                 };
-                request.send('action=get_events_by_string&search='+searchVal+'&institution='<?php echo $institution ?>);
+                request.send('action=get_events_by_string&search='+searchVal+'&institution='<?php echo esc_html($institution) ?>);
                 return false;
             }
         </script>

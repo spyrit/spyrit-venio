@@ -53,7 +53,7 @@ class SettingsPage
         $this->options = get_option('venio_config'); ?>
         <div class="wrap">
             <h1>
-                <img src="<?= plugin_dir_url(__FILE__) ?>../assets/img/logo-venio.svg" alt="Logo de VENIO">
+                <img src="<?php echo esc_html(plugin_dir_url(__FILE__)) ?>../assets/img/logo-venio.svg" alt="Logo de VENIO">
                 Venio
             </h1>
             <div class="notices-wrap"><?php do_action('admin_notices') ?></div>
@@ -65,12 +65,12 @@ class SettingsPage
                         submit_button();
                         ?>
                 </form>
-                <form method="POST" action="<?php echo $_SERVER['REQUEST_URI'] ?>&sync">
+                <form method="POST" action="<?php echo esc_url($_SERVER['REQUEST_URI']) ?>&sync">
                     <h2><?php _e( 'Events retrieval', 'venio' ); ?></h2>
                     <div class="api-call">
                         <?php submit_button(__( 'Force update', 'venio' ), 'large', 'sync', true, '') ?>
                         <?php if (get_option('venio_api_last_call')): ?>
-                            <p style="margin-top: 10px;"><?php _e( 'Last update', 'venio' ); ?>&nbsp;: <strong><?= get_option('venio_api_last_call') ?></strong></p>
+                            <p style="margin-top: 10px;"><?php _e( 'Last update', 'venio' ); ?>&nbsp;: <strong><?php echo esc_html(get_option('venio_api_last_call')) ?></strong></p>
                         <?php endif; ?>
                     </div>
                 </form>
@@ -104,7 +104,7 @@ class SettingsPage
 
                 </div>
                 <div class="copy">
-                    Venio version <?= VENIO_VERSION ?><br>
+                    Venio version <?php echo esc_html(VENIO_VERSION) ?><br>
                     <?php _e( 'Designed by', 'venio' ); ?> <a href="https://www.spyrit.net" title="Accéder au site de SPYRIT" target="_blank">Spyrit systèmes d'information</a>
                 </div>
             </div>
