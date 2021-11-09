@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Venio 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/venio\n"
-"POT-Creation-Date: 2021-11-09T15:30:40+00:00\n"
-"PO-Revision-Date: 2021-11-09 16:30+0100\n"
+"POT-Creation-Date: 2021-11-09T16:40:41+00:00\n"
+"PO-Revision-Date: 2021-11-09 17:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -140,6 +140,10 @@ msgstr "Développé par"
 #: classes/SettingsPage.php:139
 msgid "Institutions, separated by comma"
 msgstr "Institutions, séparées par une virgule"
+
+#: inc/venio-events-list.php:15
+msgid "Access the event page"
+msgstr "Accéder à la page de l’événement"
 
 #: shortcodes/venio-events-shortcode.php:12
 #: shortcodes/venio-events-shortcode.php:14

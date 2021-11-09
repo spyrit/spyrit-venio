@@ -12,7 +12,7 @@ function venio_events_list($events)
     <?php endfor;
     foreach ($events as $event): ?>
         <?php $url = get_site_url() . (!get_option('permalink_structure') ? '?evenement=' : '/evenement/') . $event['subdomain'] ?>
-        <a href="<?php echo esc_url($url) ?>" title="Accéder à l'événement <?php echo esc_html($event['name']) ?>" class="single-event">
+        <a href="<?php echo esc_url($url) ?>" title="<?php _e( "Access the event page", 'venio' ); ?> <?php echo esc_html($event['name']) ?>" class="single-event">
             <?php if ($helper->hasThumbnail($event)): ?>
                 <img src="<?php echo esc_html($helper->getEventThumbnail($event)) ?>">
             <?php else: ?>

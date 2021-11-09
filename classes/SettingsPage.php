@@ -48,7 +48,7 @@ class SettingsPage
         $this->options = get_option('venio_config'); ?>
         <div class="wrap">
             <h1>
-                <img src="<?php echo esc_html(plugin_dir_url(__FILE__)) ?>../assets/img/logo-venio.svg" alt="<?php  _e( "Venio's logo", 'venio' ); ?>" />
+                <img src="<?php echo esc_html(plugin_dir_url(__FILE__)) ?>../assets/img/logo-venio.svg" alt="<?php _e( "Venio's logo", 'venio' ); ?>" />
                 Venio
             </h1>
             <div class="notices-wrap"><?php do_action('admin_notices') ?></div>
