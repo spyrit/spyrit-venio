@@ -41,19 +41,14 @@ class SettingsPage
      */
     public function venio_admin_page()
     {
-
-        if (isset($_GET['page']) && $_GET['page'] == 'venio-options' && isset($_GET['sync'])) {
-            try {
-                $api = new \VENIO\Api();
-                $api->getEvents(null, null, true);
-            } catch (Exception $e) {
-            }
+        if (isset($_GET['page']) && $_GET['page'] === 'venio-options' && isset($_POST['sync'])) {
+            $api = new \VENIO\Api();
+            $api->getEvents(null, null, true);
         }
-
         $this->options = get_option('venio_config'); ?>
         <div class="wrap">
             <h1>
-                <img src="<?php echo esc_html(plugin_dir_url(__FILE__)) ?>../assets/img/logo-venio.svg" alt="Logo de VENIO">
+                <img src="<?php echo esc_html(plugin_dir_url(__FILE__)) ?>../assets/img/logo-venio.svg" alt="<?php  _e( "Venio's logo", 'venio' ); ?>" />
                 Venio
             </h1>
             <div class="notices-wrap"><?php do_action('admin_notices') ?></div>
@@ -65,7 +60,7 @@ class SettingsPage
                         submit_button();
                         ?>
                 </form>
-                <form method="POST" action="<?php echo esc_url($_SERVER['REQUEST_URI']) ?>&sync">
+                <form method="POST">
                     <h2><?php _e( 'Events retrieval', 'venio' ); ?></h2>
                     <div class="api-call">
                         <?php submit_button(__( 'Force update', 'venio' ), 'large', 'sync', true, '') ?>
@@ -145,8 +140,4 @@ class SettingsPage
             isset($this->options['institutions']) ? esc_attr($this->options['institutions']) : ''
         );
     }
-}
-
-if (is_admin()) {
-    $settings_page = new SettingsPage();
 }

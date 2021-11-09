@@ -7,7 +7,7 @@
  * Requires at least: 5.7
  * Requires PHP: 5.6
  * Author: SPYRIT
- * Author URI: http://www.spyrit.net
+ * Author URI: https://www.spyrit.net
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: venio
@@ -47,3 +47,12 @@ add_action('init', function (){
     $plugin = new VENIO\VenioPlugin();
     $plugin->init();
 });
+
+// Settings link
+function venio_settings_link($links)
+{
+    $settings_link = '<a href="'.admin_url().'admin.php?page=venio-options">'.esc_html__('Settings','venio').'</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+add_filter("plugin_action_links_" . plugin_basename(__FILE__), 'venio_settings_link');

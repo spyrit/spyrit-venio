@@ -19,6 +19,11 @@ class VenioPlugin
         $api = new Api();
         $api->init();
 
+        // Init Setting page
+        if (is_admin()) {
+            new \SettingsPage();
+        }
+
         // Call includes
         require_once VENIO_PLUGIN_DIR_PATH . 'inc/venio-events-list.php';
 

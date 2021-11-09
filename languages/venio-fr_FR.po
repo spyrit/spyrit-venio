@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Venio 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/venio\n"
-"POT-Creation-Date: 2021-11-03T14:29:55+00:00\n"
-"PO-Revision-Date: 2021-11-03 15:30+0100\n"
+"POT-Creation-Date: 2021-11-09T15:30:40+00:00\n"
+"PO-Revision-Date: 2021-11-09 16:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -18,97 +18,105 @@ msgstr ""
 
 #. Plugin Name of the plugin
 msgid "Venio"
-msgstr ""
+msgstr "Venio"
+
+#. Plugin URI of the plugin
+msgid "https://venio.fr/extension-wordpress-venio/"
+msgstr "https://venio.fr/extension-wordpress-venio/"
 
 #. Description of the plugin
-msgid "Display Venio events directly on your WordPress site."
+msgid "Display Venio events directly on your WordPress website."
 msgstr "Affiche les événements Venio directement sur votre site WordPress."
 
 #. Author of the plugin
 msgid "SPYRIT"
-msgstr ""
+msgstr "SPYRIT"
 
 #. Author URI of the plugin
-msgid "http://www.spyrit.net"
-msgstr ""
+msgid "https://www.spyrit.net"
+msgstr "https://www.spyrit.net"
 
-#: classes/SettingsPage.php:69
+#: classes/SettingsPage.php:51
+msgid "Venio's logo"
+msgstr "Logo de Venio"
+
+#: classes/SettingsPage.php:64
 msgid "Events retrieval"
 msgstr "Récupération des événements"
 
-#: classes/SettingsPage.php:71
+#: classes/SettingsPage.php:66
 msgid "Force update"
 msgstr "Forcer la récupération"
 
-#: classes/SettingsPage.php:73
+#: classes/SettingsPage.php:68
 msgid "Last update"
 msgstr "Dernière récupération"
 
-#: classes/SettingsPage.php:78
+#: classes/SettingsPage.php:73
 msgid "How to use Venio plugin on your website?"
 msgstr "Comment utiliser l’extension Venio sur votre site internet ?"
 
-#: classes/SettingsPage.php:79
+#: classes/SettingsPage.php:74
 msgid "Insert the shortcode in your pages or posts"
 msgstr "Insérez le shortcode dans vos pages / articles WordPress"
 
-#: classes/SettingsPage.php:82
+#: classes/SettingsPage.php:77
 msgid ""
 "Display a search module listing your events depending on search criteria."
 msgstr ""
 "Affiche un module de recherche qui liste vos événements en fonction des "
 "critères recherchés."
 
-#: classes/SettingsPage.php:83
+#: classes/SettingsPage.php:78
 msgid "Available options"
 msgstr "Options disponibles"
 
-#: classes/SettingsPage.php:87
+#: classes/SettingsPage.php:82
 msgid "not required"
 msgstr "non requis"
 
-#: classes/SettingsPage.php:87
+#: classes/SettingsPage.php:82
 msgid "institution slug"
 msgstr "slug de l’institution des événements"
 
-#: classes/SettingsPage.php:88
+#: classes/SettingsPage.php:83
 msgid "Example"
 msgstr "Exemple d’intégration"
 
-#: classes/SettingsPage.php:93
+#: classes/SettingsPage.php:88
 msgid "How does it work?"
 msgstr "Comment ça marche ?"
 
-#: classes/SettingsPage.php:94
+#: classes/SettingsPage.php:89
 msgid "Single event"
 msgstr "Fiche événement"
 
-#: classes/SettingsPage.php:96
+#: classes/SettingsPage.php:91
 msgid "An URL is aviable for each of your events under the following pattern"
 msgstr ""
 "Un URL est disponible pour chacun de vos événements, sous la forme suivante"
 
-#: classes/SettingsPage.php:97
+#: classes/SettingsPage.php:92
 msgid "https://yourwebsite.com/"
 msgstr "https://votresite.fr/"
 
-#: classes/SettingsPage.php:99
+#: classes/SettingsPage.php:94
 msgid "Consulting events is generating the url"
 msgstr ""
 "Cette URL est générée à la volée, en fonction des événements connus par le "
 "site via l’API Venio"
 
-#: classes/SettingsPage.php:100
+#: classes/SettingsPage.php:95
 msgid "Caching system"
 msgstr "Le cache"
 
-#: classes/SettingsPage.php:101
+#: classes/SettingsPage.php:96
 msgid "Caching system is regulating the connection with Venio API calls"
 msgstr ""
 "La connexion avec Venio et l’appel de vos événements est régulée par un "
 "cache sur votre site WordPress"
 
-#: classes/SettingsPage.php:102
+#: classes/SettingsPage.php:97
 msgid ""
 "Caching lifetime is set to 1 hour (3600 seconds), every hours, your website "
 "make a new API call to Venio to get and display all your public events"
@@ -117,7 +125,7 @@ msgstr ""
 "votre site WordPress fait un nouvel appel à Venio pour récupérer et afficher "
 "vos événements"
 
-#: classes/SettingsPage.php:103
+#: classes/SettingsPage.php:98
 msgid ""
 "Anytime, you can force the events retrieval clicking on the \"Force update\" "
 "button"
@@ -125,11 +133,11 @@ msgstr ""
 "À tout moment, vous pouvez forcer la récupération des événements (le "
 "renouvellement du cache) en appuyant sur le bouton « Forcer la récupération »"
 
-#: classes/SettingsPage.php:108
+#: classes/SettingsPage.php:103
 msgid "Designed by"
 msgstr "Développé par"
 
-#: classes/SettingsPage.php:144
+#: classes/SettingsPage.php:139
 msgid "Institutions, separated by comma"
 msgstr "Institutions, séparées par une virgule"
 
@@ -142,34 +150,38 @@ msgstr "Rechercher par nom"
 msgid "Search"
 msgstr "Rechercher"
 
-#: templates/evenement-venio.php:48
+#: templates/evenement-venio.php:50
 msgid "Practical informations"
 msgstr "Informations pratiques"
 
-#: templates/evenement-venio.php:54
+#: templates/evenement-venio.php:56
 msgid "Program"
 msgstr "Programme"
 
-#: templates/evenement-venio.php:60
+#: templates/evenement-venio.php:62
 msgid "Packages list"
 msgstr "Liste des formules"
 
-#: templates/evenement-venio.php:64
+#: templates/evenement-venio.php:66
 msgid "Package"
 msgstr "Formule"
 
-#: templates/evenement-venio.php:67
+#: templates/evenement-venio.php:69
 msgid "Register with the package"
 msgstr "S’inscrire avec la formule"
 
-#: templates/evenement-venio.php:67
+#: templates/evenement-venio.php:69
 msgid "You will leave the site to register on"
 msgstr "Vous allez quitter le site pour vous inscrire sur"
 
-#: templates/evenement-venio.php:68
+#: templates/evenement-venio.php:70
 msgid "Choose this package"
 msgstr "Choisir cette formule"
 
-#: templates/evenement-venio.php:70
+#: templates/evenement-venio.php:72
 msgid "Starting from"
 msgstr "À partir de"
+
+#: venio.php:54
+msgid "Settings"
+msgstr "Réglages"
