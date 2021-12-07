@@ -31,6 +31,10 @@ class Api
     {
         $eventsFromCache = $this->getEventsFromCache();
         if ($ignoreCache || !$eventsFromCache) {
+            if (!$this->getInstitutions()) {
+                delete_transient(VENIO_TRANSIENT_NAME);
+                return false;
+            }
             $this->cacheEvents();
             return $this->getEvents($institution, $slug);
         }

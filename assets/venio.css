@@ -21,6 +21,7 @@
   margin: 0;
   padding: 10px 15px;
   font-size: 14px;
+  background: #efeff1;
 }
 .venio-shortcode.venio-events form .form-wrapper input[type=text]:focus {
   outline: none;
@@ -191,6 +192,10 @@
   color: #fff;
   margin: 0;
   padding: 0 12px;
+}
+.venio-single .venio-slider-container .venio-slider-controls .prev:hover,
+.venio-single .venio-slider-container .venio-slider-controls .next:hover {
+  cursor: pointer;
 }
 .venio-single .venio-slider-container .venio-slide {
   height: 210px;
