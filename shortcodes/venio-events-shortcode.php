@@ -40,7 +40,8 @@ function venio_events_shortcode($atts)
                         }
                     }
                 };
-                request.send('action=get_events_by_string&search='+searchVal+'&institution='<?php echo esc_html($institution) ?>);
+                let institution = '<?php echo esc_html($institution) ?>';
+                request.send('action=get_events_by_string&search='+searchVal+'&institution='+institution);
                 return false;
             }
         </script>

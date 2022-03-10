@@ -166,6 +166,27 @@
   padding: 48px 44px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  position: relative;
+}
+.venio-single .back-button {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border: 1px solid #3e3d3d;
+  color: #3e3d3d;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 20px;
+  display: inline-block;
+  border-radius: 50px;
+  transition: 0.2s ease all;
+}
+.venio-single .back-button:hover, .venio-single .back-button:focus, .venio-single .back-button:active {
+  background: #3e3d3d !important;
+  color: #fff !important;
+  outline: 0 !important;
+  text-decoration: none !important;
 }
 .venio-single h1 {
   font-size: 25px !important;

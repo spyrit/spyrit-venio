@@ -27,6 +27,14 @@ class Helper
         return false;
     }
 
+    public function getEventUrl($event)
+    {
+        if (isset($event['subdomain'])) {
+            return get_site_url() . (!get_option('permalink_structure') ? '?evenement=' : '/evenement/') . $event['subdomain'];
+        }
+        return false;
+    }
+
     public function hasThumbnail($event)
     {
         if (isset($event['images']) && count($event['images']) > 0) {
@@ -55,6 +63,24 @@ class Helper
                 '. ' .
                 strftime("%Y", $endDateTime->getTimestamp())
             ;
+        }
+        return false;
+    }
+
+    public function getBackButtonURL()
+    {
+        $url = get_option('venio_config') && isset(get_option('venio_config')['back-button-url']) ? get_option('venio_config')['back-button-url'] : null;
+        if ($url) {
+            return $url;
+        }
+        return false;
+    }
+
+    public function getBackButtonLabel()
+    {
+        $label = get_option('venio_config') && isset(get_option('venio_config')['back-button-label']) ? get_option('venio_config')['back-button-label'] : null;
+        if ($label) {
+            return $label;
         }
         return false;
     }

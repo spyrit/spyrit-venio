@@ -1,10 +1,10 @@
 === Venio ===
 Contributors: spyrit, paulkarampournis
 Tags: venio, events
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 Requires at least: 5.7
 Requires PHP: 5.6
-Tested up to: 5.8
+Tested up to: 5.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,13 @@ In the search field type "Venio" and click Search Plugins. Once you have found t
 2. Activate Venio through the 'Plugins' menu in WordPress.
 
 == Changelog ==
+
+### 1.1.0 - 2022-03-10
+- Dashboard: changing layout of options page
+- Dashboard: adding 2 new fields -> Back button URL and Back button label
+- Dashboard: display of the list of events directly on the options page
+- Front: adding a back button in event single page
+- Front: fix layout when selecting an institution
 
 ### 1.0.1 - 2021-12-07
 - API: fix infinite loop when institution option is empty

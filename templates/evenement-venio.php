@@ -26,14 +26,21 @@ if (!$event || !isset($wp_query->query['evenement'])) {
 <?php get_header(); ?>
 
 <main id="site-content" class="venio-single" role="main">
+    <?php if ($helper->getBackButtonURL()): ?>
+        <a class="back-button" href="<?php echo esc_url($helper->getBackButtonURL()) ?>" title="<?php _e( 'Back', 'venio' ); ?>">
+            <&nbsp;<?php echo $helper->getBackButtonLabel() ? esc_html($helper->getBackButtonLabel()) : __( 'Back', 'venio' ) ?>
+        </a>
+    <?php endif; ?>
     <h1><?php echo esc_html($event['name']) ?></h1>
     <div class="date"><?php echo esc_html($helper->getFormattedDate($event)); ?></div>
     <?php if($helper->hasThumbnail($event)): ?>
         <div class="venio-slider-container">
-            <div class="venio-slider-controls">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
+            <?php if(count($helper->getEventMedias($event)) > 1): ?>
+                <div class="venio-slider-controls">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            <?php endif; ?>
             <?php foreach ($helper->getEventMedias($event) as $imageUrl): ?>
                 <div class="venio-slide" style="background-image:url('<?php echo esc_url($imageUrl) ?>');"></div>
             <?php endforeach; ?>
@@ -48,7 +55,7 @@ if (!$event || !isset($wp_query->query['evenement'])) {
     <?php if ($event['practical_informations']): ?>
         <div class="info-block">
             <span class="block-title"><?php _e( 'Practical informations', 'venio' ); ?></span>
-            <div class="block-content"><?php echo esc_html($event['practical_informations']); ?></div>
+            <div class="block-content"><?php echo wp_kses($event['practical_informations'], ['a' => ['href' => [], 'title' => []], 'br' => [], 'em' => [], 'strong' => [],]); ?></div>
         </div>
     <?php endif; ?>
     <?php if ($event['program']): ?>

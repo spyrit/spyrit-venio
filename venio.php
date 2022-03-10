@@ -3,7 +3,7 @@
  * Plugin Name: Venio
  * Plugin URI: https://venio.fr/extension-wordpress-venio/
  * Description: Display Venio events directly on your WordPress website.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Requires at least: 5.7
  * Requires PHP: 5.6
  * Author: SPYRIT
@@ -33,7 +33,7 @@ define("VENIO_PLUGIN_DIR_PATH", plugin_dir_path(__FILE__));
 define("VENIO_TRANSIENT_NAME", 'venio_events');
 define("VENIO_API_URL", 'https://api.venio.fr/api/v1/fr_FR/events/');
 define("VENIO_URL", 'https://www.venio.fr');
-define("VENIO_VERSION", '1.0.1');
+define("VENIO_VERSION", '1.1.0');
 
 // Include classes
 require_once VENIO_PLUGIN_DIR_PATH . 'classes/VenioPlugin.php';
